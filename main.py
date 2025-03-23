@@ -20,6 +20,42 @@ class MyBot(discord.Client):
 
 bot = MyBot()
 
+@bot.tree.command(name="musictip", description="Get music suggestions to use with VulcanoMusic")
+async def music(interaction: discord.Interaction):
+    # Create the embed to send
+    embed = discord.Embed(
+        title="Music Links",
+        description="Here are your direct and indirect music links:\n\n",
+        color=discord.Color.blue()
+    )
+    
+    # Direct YouTube Link
+    embed.add_field(name="Direct YouTube Link", value="/play query: https://www.youtube.com/watch?v=YCCDQfYMo0s", inline=False)
+    
+    # Indirect YouTube Link
+    embed.add_field(name="Indirect YouTube Link", value="/play query: https://vulcanolinks.pages.dev/rickroll", inline=False)
+    
+    # Direct Spotify Link
+    embed.add_field(name="Direct Spotify Link", value="/play query: https://open.spotify.com/track/1J03Vp93ybKIxfzYI4YJtL?si=c3bfefc811eb4cba", inline=False)
+    
+    # Indirect Spotify Link
+    embed.add_field(name="Indirect Spotify Link", value="/play query: https://links.vulcanocraft.is-a.dev/megaspot", inline=False)
+    
+    # Direct Audio Link
+    embed.add_field(name="Direct Audio Link", value="/play query: https://drive.google.com/uc?export=download&id=1dB5Pe6PvsZcKPRaHeivOwwHx2O9faaDp", inline=False)
+    
+    # Indirect Audio Link
+    embed.add_field(name="Indirect Audio Link", value="/play query: https://vulcanolinks.pages.dev/tom", inline=False)
+    
+    # Direct SoundCloud Link
+    embed.add_field(name="Direct SoundCloud Link", value="/play query: https://soundcloud.com/justaddictive/rick-astley-never-gonna-give-you-up-sterbinszky-disco-remix-1?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", inline=False)
+    
+    # Indirect SoundCloud Link
+    embed.add_field(name="Indirect SoundCloud Link", value="/play query: https://links.vulcanocraft.is-a.dev/marioc", inline=False)
+    
+    # Send the embed
+    await interaction.response.send_message(embed=embed)
+
 @bot.tree.command(name="active-dev-badge", description="Claim your Active Developer Badge")
 async def active_dev_badge(interaction: discord.Interaction):
     embed = discord.Embed(
